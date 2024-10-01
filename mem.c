@@ -7,7 +7,12 @@ typedef struct
     uint16_t len;
 } mem_header_t;
 
-static uint8_t gHeap[HEAP_SIZE] = {FREE, 0x0, HIGH_BYTE(HEAP_SIZE), LOW_BYTE(HEAP_SIZE)};
+static uint8_t gHeap[HEAP_SIZE] = {
+    FREE,
+    0x0,
+    LOW_BYTE(HEAP_SIZE - sizeof(mem_header_t)),
+    HIGH_BYTE(HEAP_SIZE - sizeof(mem_header_t)),
+};
 
 // header
 void *mem_malloc(uint16_t size)
