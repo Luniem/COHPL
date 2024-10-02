@@ -3,15 +3,12 @@
 #include "include/mem.h"
 #include "include/array_utils.h"
 
-int sum(int a, int b) {
-    return a + b;
-}
-
 void printValue(int i) {
         printf("%d ", i); 
 }
 
-int main(int argc, char** argv) {    
+// mem_alloc program 
+void test_mem_alloc() {
     int64_t i = 0;
     int8_t* pointer;
 
@@ -39,7 +36,10 @@ int main(int argc, char** argv) {
     } else {
         printf("Everything worked!");
     }
+}
 
+// array_utils test
+void test_array_utils() {
     int arr[] = {64, 34, 25, 12, 22, 11, 90};
     int n = sizeof(arr)/sizeof(arr[0]);
 
@@ -53,6 +53,12 @@ int main(int argc, char** argv) {
     bubble_sort(arr, n, descending);
     printf("\n\nSorted descending: ");
     for_each(arr, n, printValue);
+}
+
+int main(int argc, char** argv) {    
+    test_mem_alloc();
+    test_array_utils();
+ 
 
     return 0;
 }
