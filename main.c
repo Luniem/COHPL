@@ -2,6 +2,7 @@
 #include <inttypes.h>
 #include "include/mem.h"
 #include "include/array_utils.h"
+#include "include/callback.h"
 
 void printValue(int i) {
         printf("%d ", i); 
@@ -55,10 +56,21 @@ void test_array_utils() {
     for_each(arr, n, printValue);
 }
 
+void receive_message(message_t* message) {
+    printf("Received message: %s\n", message->message);
+}
+
 int main(int argc, char** argv) {    
-    test_mem_alloc();
-    test_array_utils();
- 
+    // test_mem_alloc();
+    // test_array_utils();
+    
+    subscribe(receive_message);
+
+    message_t message;
+    message.message = "Hello, World!";
+    message.timestamp = 123456789;
+
+    send_message(&message);
 
     return 0;
 }
