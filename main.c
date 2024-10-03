@@ -60,17 +60,35 @@ void receive_message(message_t* message) {
     printf("Received message: %s\n", message->message);
 }
 
+void receive_message2(message_t* message) {
+    printf("Received message 2: %s\n", message->message);
+}
+
+// observer test
+void test_observer() {
+    observer_t* obs1 = (observer_t*)malloc(sizeof(observer_t));
+    obs1->callback = receive_message;
+    subscribe(obs1);
+
+    observer_t* obs2 = (observer_t*)malloc(sizeof(observer_t));
+    obs2->callback = receive_message2;
+    subscribe(obs2);
+
+    message_t message = {"Hello, World!", 123456789};
+
+    send_message(&message);
+
+    // kill second observer
+    unsubscribe(obs2);
+    free(obs2);
+
+    send_message(&message);
+}
+
 int main(int argc, char** argv) {    
     // test_mem_alloc();
     // test_array_utils();
-    
-    subscribe(receive_message);
-
-    message_t message;
-    message.message = "Hello, World!";
-    message.timestamp = 123456789;
-
-    send_message(&message);
+    test_observer();
 
     return 0;
 }

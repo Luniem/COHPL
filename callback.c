@@ -1,9 +1,18 @@
 #include "include/callback.h"
 
-// subject with observer list
-static subject* subject_instance;
+subject_t* get_subject() {
+    static subject_t* instance = NULL;
+
+    if (instance == NULL) {
+        instance = (subject_t*)malloc(sizeof(subject_t));
+    }
+
+    return instance;
+}
 
 void send_message(message_t* message) {
+    subject_t* subject_instance = get_subject();
+
     // send message to all callbacks
     for (int i = 0; i < MAX_OBSERVER_SIZE; i++) {
         if(subject_instance->observers[i] != NULL) {
@@ -12,7 +21,9 @@ void send_message(message_t* message) {
     }
 }
 
-bool subscribe(observer* observer) {
+bool subscribe(observer_t* observer) {
+    subject_t* subject_instance = get_subject();
+
     // search for open space
     for (int i = 0; i < MAX_OBSERVER_SIZE; i++) {
         if(subject_instance->observers[i] == NULL) {
@@ -22,4 +33,15 @@ bool subscribe(observer* observer) {
     }
     
     return false;
+}
+
+void unsubscribe(observer_t* observer) {
+    subject_t* subject_instance = get_subject();
+
+    //serach for observer and remove it
+    for (int i = 0; i < MAX_OBSERVER_SIZE; i++) {
+        if(subject_instance->observers[i] == observer) {
+            subject_instance->observers[i] = NULL;
+        }
+    }
 }
