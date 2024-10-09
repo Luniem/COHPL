@@ -9,7 +9,7 @@
                 "-g",
                 "-o",
                 "program_debug",
-                "${workspaceFolder}/*.c"
+                "${workspaceFolder}/*.cpp"
             ],
             "options": {
                 "cwd": "${workspaceFolder}"

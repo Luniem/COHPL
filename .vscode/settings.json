@@ -2,5 +2,6 @@
     "terminal.integrated.shellIntegration.enabled": false,
     "files.associations": {
         "callback.h": "c"
-    }
+    },
+    "C_Cpp.errorSquiggles": "disabled"
 }
