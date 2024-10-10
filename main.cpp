@@ -14,4 +14,6 @@ void foo(const Stack& s) {
 int main() {
     Stack s(10);
     printf("Hello, World!\n");
+    foo(s);
+    baz(s);
 }

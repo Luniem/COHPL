@@ -1,46 +1,24 @@
-struct Stack {
+#ifndef STACK_H
+#define STACK_H
 
+class Stack {
     private:
         int* _pValues;
 
     public:
         int _size;
 
-        Stack(int size) {
-            _pValues = new int[size];
-            _size = size;
-        }
+        Stack(int size);
 
-        Stack(const Stack& other) {
-            _pValues = new int[other.size];
-            _size = other.size;
-            for (int i =0; i < size; i++) {
-                _pValues[i] = other._pValues[i];
-            }
-        }
+        Stack(const Stack& other);
 
-        ~Stack(){
-            delete[] _pValues;
-        }
+        ~Stack();
 
-        Stack& operator=(const Stack& other) {
-            if(this == &other) {
-                return this;
-            }
+        Stack* operator=(const Stack& other);
 
-            delete[] _pValues;
-            _pValues = new int[other.size];
-            _size = other.size;
-            for (int i =0; i < size; i++) {
-                _pValues[i] = other._pValues[i];
-            }
-        }
+        void push(int value);
 
-        void push(int value) {
-
-        }
-
-        bool isEmpty() const {
-            return true;
-        }
+        bool isEmpty() const;
 };
+
+#endif
