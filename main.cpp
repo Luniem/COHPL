@@ -1,5 +1,7 @@
-#include <stdio.h>
 #include "include/stack.h"
+#include "include/fraction.h"
+#include <stdio.h>
+#include <iostream>
 
 void baz(Stack& s) {
     s.isEmpty();
@@ -12,8 +14,13 @@ void foo(const Stack& s) {
 }
 
 int main() {
-    Stack s(10);
-    printf("Hello, World!\n");
-    foo(s);
-    baz(s);
+    // Stack s(10);
+    // printf("Hello, World!\n");
+    // foo(s);
+    // baz(s);
+    Fraction f1(51, 21);
+    Fraction f2(92, 59);
+
+    Fraction f3 = f1 + f2;
+    cout << f3.toString() << endl;
 }
