@@ -13,10 +13,15 @@ class Fraction {
     public:
         Fraction(int numerator, int denominator);
         Fraction(float value);
-        Fraction operator+(Fraction& other) const;
+
         void reduce();
+
+        operator double() const;
+
+        Fraction operator+(Fraction& other) const;
         string toString() const;
 };
 
 Fraction operator+(const Fraction& f1, const Fraction& f2);
+ostream& operator<<(ostream& os, const Fraction& f);
 #endif

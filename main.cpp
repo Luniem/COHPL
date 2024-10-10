@@ -22,5 +22,6 @@ int main() {
     Fraction f2(92, 59);
 
     Fraction f3 = f1 + f2;
-    cout << f3.toString() << endl;
+
+    cout << f3 << endl;
 }

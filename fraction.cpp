@@ -34,3 +34,12 @@ Fraction operator+(const Fraction& f1, const Fraction& f2) {
     int new_numerator = f1._numerator * (new_denominator / f1._denominator) + f2._numerator * (new_denominator / f2._denominator);
     return Fraction(new_numerator, new_denominator);
 }
+
+Fraction::operator double() const {
+    return (double)_numerator / _denominator;
+}
+
+ostream& operator<<(ostream& os, const Fraction& f) {
+    os << f.toString();
+    return os;
+}
