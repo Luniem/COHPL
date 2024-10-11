@@ -1,27 +1,29 @@
 #ifndef FRACTION_H
 #define FRACTION_H
 #include <string>
+#include <iostream>
 using namespace std;
 
-class Fraction {
-    friend Fraction operator+(const Fraction& f1, const Fraction& f2);
+class Fraction
+{
+    friend Fraction operator+(const Fraction &f1, const Fraction &f2);
 
-    private:
-        int _numerator;
-        int _denominator;
-    
-    public:
-        Fraction(int numerator, int denominator);
-        Fraction(float value);
+private:
+    int _numerator;
+    int _denominator;
 
-        void reduce();
+public:
+    Fraction(int numerator, int denominator);
+    Fraction(float value);
 
-        operator double() const;
+    void reduce();
 
-        Fraction operator+(Fraction& other) const;
-        string toString() const;
+    operator double() const;
+
+    Fraction operator+(Fraction &other) const;
+    string toString() const;
 };
 
-Fraction operator+(const Fraction& f1, const Fraction& f2);
-ostream& operator<<(ostream& os, const Fraction& f);
+Fraction operator+(const Fraction &f1, const Fraction &f2);
+ostream &operator<<(ostream &os, const Fraction &f);
 #endif
