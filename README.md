@@ -13,5 +13,9 @@ Created a own small implementation of the C-functionality to allocate memory on 
 
 Main part of the impl. is a library that provides following functions:
 
-- void* mem_malloc(uint16_t size);  | Allocates {size} bytes on the 'heap'
-- void mem_free(void* addr);        | Free the memory of the given address
+- void\* mem_malloc(uint16_t size); | Allocates {size} bytes on the 'heap'
+- void mem_free(void\* addr); | Free the memory of the given address
+
+## Use CMake to build executables
+
+This project features a CMake-File that builds executables for all exercises contained.
