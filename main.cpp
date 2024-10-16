@@ -23,5 +23,11 @@ int main() {
 
     Fraction f3 = f1 + f2;
 
+    Fraction f4 = Fraction(2, 4);
     cout << f3 << endl;
+
+    cout << f4 << endl;
+    ++f4;
+    f4++;
+    cout << f4 << endl;
 }

@@ -39,6 +39,19 @@ Fraction::operator double() const {
     return (double)_numerator / _denominator;
 }
 
+Fraction& Fraction::operator++() {
+    printf("Prefix increment\n");
+    _numerator = _numerator + _denominator;
+    return *this;
+}
+
+Fraction Fraction::operator++(int) {
+    Fraction f = *this;
+    printf("Postfix increment\n");
+    this->operator++();
+    return f;
+}
+
 ostream& operator<<(ostream& os, const Fraction& f) {
     os << f.toString();
     return os;

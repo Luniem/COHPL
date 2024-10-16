@@ -19,6 +19,8 @@ class Fraction {
         operator double() const;
 
         Fraction operator+(Fraction& other) const;
+        Fraction& operator++();
+        Fraction operator++(int);
         string toString() const;
 };
 
