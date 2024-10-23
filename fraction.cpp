@@ -45,6 +45,12 @@ Fraction::operator double() const
     return (double)_numerator / _denominator;
 }
 
+Fraction Fraction::operator++()
+{
+    _numerator += _denominator;
+    return *this;
+}
+
 ostream &operator<<(ostream &os, const Fraction &f)
 {
     os << f.toString();

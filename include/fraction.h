@@ -22,6 +22,8 @@ public:
 
     Fraction operator+(Fraction &other) const;
     string toString() const;
+
+    Fraction operator++();
 };
 
 Fraction operator+(const Fraction &f1, const Fraction &f2);
